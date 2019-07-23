@@ -1,7 +1,7 @@
 // Imports
 const express = require("express");
-var database = require("./src/lib/database.js");
-var artistRecord = require("./src/entities/artistRecord.js");
+var database = require("./lib/database.js");
+var artistRecord = require("./entities/artistRecord.js");
 
 // Setup
 const app = express();
