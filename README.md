@@ -10,16 +10,16 @@
 
 ### Install dependencies
 
-  `npm i`
+    npm i
 
 ### Environment Variables
 
 Export the following:
 
-  `export DATABASE_HOST=<INSERT HERE>`
-  `export DATABASE_NAME=<INSERT HERE>`
-  `export DATABASE_USER=<INSERT HERE>`
-  `export DATABASE_PASSWORD=<INSERT HERE>`
+    export DATABASE_HOST="<INSERT HERE>"
+    export DATABASE_NAME="<INSERT HERE>"
+    export DATABASE_USER="<INSERT HERE>"
+    export DATABASE_PASSWORD="<INSERT HERE>"
 
 ### Database
 
@@ -29,12 +29,16 @@ Start MySQL locally and run the setup script
 
 ## Usage
 
-  npm run local-start
+    npm run start
 
-Open a browser or Postman at http://localhost:3000/
+Open a browser at http://localhost:3000/ 
 
- 
+If all goes well you should see the artists output 🎉
 
+![api output screehnshot](./docs/images/demo.png "api output screenshot")
+
+
+[demo](./docs/images/demo/jpg)
 
 ## TODO
 
