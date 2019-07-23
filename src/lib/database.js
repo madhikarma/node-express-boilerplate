@@ -1,21 +1,19 @@
 var mysql = require("mysql");
 
-createConnection = () => {
-  const connection = mysql.createConnection({
+var connectionPool;
+createConnectionPool = () => {
+  connectionPool = mysql.createPool({
+    connectionLimit: 10,
     host: process.env.DATABASE_HOST,
     database: process.env.DATABASE_NAME,
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD
   });
-  return connection;
 };
 
-connect = callback => {
-  const connection = createConnection();
-  connection.connect(error => {
-    callback(error);
-  });
+getConnectionPool = () => {
+  return connectionPool;
 };
 
-module.exports.createConnection = createConnection;
-module.exports.connect = connect;
+module.exports.createConnectionPool = createConnectionPool;
+module.exports.getConnectionPool = getConnectionPool;

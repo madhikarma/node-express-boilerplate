@@ -48,4 +48,5 @@ sendResponse = (response, status, body) => {
 const server = app.listen(process.env.PORT || "3000", () => {
   console.log("App listening on port %s", server.address().port);
   console.log("Press Ctrl+C to quit");
+  database.createConnectionPool();
 });
