@@ -8,6 +8,17 @@ const app = express();
 app.use(express.json());
 app.set("json spaces", 2);
 
+if (process.env.NODE_ENV === "dev") {
+  app.use((request, response, next) => {
+    response.header("Access-Control-Allow-Origin", "http://localhost:8080");
+    response.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
+}
+
 // Routes
 app.get("/", (request, response) => {
   artistRecord.getArtists((artists, error) => {
