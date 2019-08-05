@@ -14,4 +14,6 @@ router.post("/", (request, response) => {
   artistsController.create(artist, request, response);
 });
 
+// TODO: nested routes: https://gist.github.com/zcaceres/f38b208a492e4dcd45f487638eff716c
+
 module.exports = router;
