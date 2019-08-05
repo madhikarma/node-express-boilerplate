@@ -1,7 +1,7 @@
 // Imports
+const database = require("./lib/database.js");
 const express = require("express");
-var database = require("./lib/database.js");
-var artistRecord = require("./entities/artistRecord.js");
+const { ArtistsController } = require("./controllers/artistsController.js");
 
 // Setup
 const app = express();
@@ -20,41 +20,16 @@ if (process.env.NODE_ENV === "dev") {
 }
 
 // Routes
-app.get("/", (request, response) => {
-  artistRecord.getArtists((artists, error) => {
-    const status = getHTTPStatus(artists, error, "GET");
-    sendResponse(response, status, artists);
-  });
+app.get("/artists", (request, response) => {
+  const artistsController = new ArtistsController();
+  artistsController.getAll(request, response);
 });
 
-// Helpers
-getHTTPStatus = (result, error, method) => {
-  if (error) {
-    return 500;
-  }
-  let status = 200;
-  switch (method) {
-    case "POST":
-      status = 201;
-      break;
-    case "GET":
-      if (!result) {
-        status = 404;
-      } else if (Array.isArray(result) && result.length == 0) {
-        status = 204;
-      }
-      break;
-    default:
-      break;
-  }
-  return status;
-};
-
-sendResponse = (response, status, body) => {
-  response.setHeader("Content-Type", "application/json");
-  response.status(status);
-  response.json(body);
-};
+app.post("/artists", (request, response) => {
+  const artistsController = new ArtistsController();
+  const artist = { name: request.body.name };
+  artistsController.create(artist, request, response);
+});
 
 const server = app.listen(process.env.PORT || "3000", () => {
   console.log("App listening on port %s", server.address().port);
