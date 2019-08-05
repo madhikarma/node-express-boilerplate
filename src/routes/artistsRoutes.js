@@ -1,9 +1,17 @@
-import { Router } from "express";
+const express = require("express");
+const { ArtistsController } = require("../controllers/artistsController.js");
 
-import artistsController from "../controllers/artistsController";
-const router = Router();
-const todoCtrl = new artistsController(TodoModel);
+const router = express.Router();
 
-router.route("/todos").post(todoCtrl.create);
+router.get("/", (request, response) => {
+  const artistsController = new ArtistsController();
+  artistsController.getAll(request, response);
+});
 
-export default router;
+router.post("/", (request, response) => {
+  const artistsController = new ArtistsController();
+  const artist = { name: request.body.name };
+  artistsController.create(artist, request, response);
+});
+
+module.exports = router;
