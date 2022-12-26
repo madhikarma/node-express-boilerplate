@@ -69,7 +69,7 @@ If all goes well you should see the artists output 🎉
 - [ ] Promisify the callbacks (using utils)
 - [x] Controllers / pattern for Routing (e.g. MVC))
 - [ ] Fix .env support
-- [ ] Update dependencies
+- [ ] Resolve cors support
 - [ ] Docker
 - [ ] ESLint
 - [ ] TypeScript
@@ -79,3 +79,4 @@ If all goes well you should see the artists output 🎉
   - [ ] CircleCI
 - [ ] Deploy
   - [ ] AWS
+- [ ] Update dependencies
