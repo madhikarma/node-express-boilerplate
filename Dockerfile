@@ -1,5 +1,5 @@
 # Dockerfile example taken from https://nodejs.org/en/docs/guides/nodejs-docker-webapp/
-
+# TODO: (SM) database support https://www.bezkoder.com/docker-compose-nodejs-mysql/
 FROM node:10
 
 # Create app directory

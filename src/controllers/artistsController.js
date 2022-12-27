@@ -3,14 +3,15 @@ const { AppController } = require("./appController.js");
 
 class ArtistsController extends AppController {
   getAll(request, response) {
-    /*
-    const connectionPool = database.getConnectionPool();
-    const sql = `SELECT * FROM artists`;
-    connectionPool.query(sql, (error, artists) => {
-      const status = super.getHTTPStatus(artists, error, "GET");
-      super.sendResponse(response, status, artists);
-    });
-     */
+
+    // const connectionPool = database.getConnectionPool();
+    // const sql = `SELECT * FROM artists`;
+    // connectionPool.query(sql, (error, artists) => {
+    //   const status = super.getHTTPStatus(artists, error, "GET");
+    //   super.sendResponse(response, status, artists);
+    // });
+
+    // TODO: (SM) database support https://www.bezkoder.com/docker-compose-nodejs-mysql/ stub for now
     super.sendResponse(response, 200, []);
   }
 
@@ -34,6 +35,7 @@ class ArtistsController extends AppController {
       super.sendResponse(response, status, {});
     });
     */
+    // TODO: (SM) database support https://www.bezkoder.com/docker-compose-nodejs-mysql/ stub for now
     super.sendResponse(response, 201, {});
   }
 }
