@@ -40,6 +40,9 @@
 // DOCKER VERSION BELOW
 
 const express = require('express');
+const database = require("./lib/database.js");
+const { ArtistsController } = require("./controllers/artistsController.js");
+const artistsRoutes = require("./routes/artistsRoutes.js");
 
 // Constants
 const PORT = 8080;
@@ -47,9 +50,15 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
+app.use(express.json());
+app.set("json spaces", 2);
+
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
+
+app.use("/artists", artistsRoutes);
+
 
 app.listen(PORT, HOST, () => {
   console.log(`Running on http://${HOST}:${PORT}`);
