@@ -34,7 +34,7 @@ class ArtistsController extends AppController {
       super.sendResponse(response, status, {});
     });
     */
-    super.sendResponse(response, status, {});
+    super.sendResponse(response, 201, {});
   }
 }
 module.exports = {
