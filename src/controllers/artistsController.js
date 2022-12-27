@@ -3,12 +3,15 @@ const { AppController } = require("./appController.js");
 
 class ArtistsController extends AppController {
   getAll(request, response) {
+    /*
     const connectionPool = database.getConnectionPool();
     const sql = `SELECT * FROM artists`;
     connectionPool.query(sql, (error, artists) => {
       const status = super.getHTTPStatus(artists, error, "GET");
       super.sendResponse(response, status, artists);
     });
+     */
+    super.sendResponse(response, 200, []);
   }
 
   validate(artist) {
@@ -16,6 +19,7 @@ class ArtistsController extends AppController {
   }
 
   create(artist, request, response, next) {
+    /*
     const isValid = this.validate(artist);
     if (!isValid) {
       super.sendResponse(response, 400, {
@@ -29,6 +33,8 @@ class ArtistsController extends AppController {
       const status = super.getHTTPStatus(result, error, "POST");
       super.sendResponse(response, status, {});
     });
+    */
+    super.sendResponse(response, status, {});
   }
 }
 module.exports = {
